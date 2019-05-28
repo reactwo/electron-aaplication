@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Hello World!</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
+	<link rel="stylesheet" href="./assests/css/style.css">
+</head>
+
+<body>
+	<section class="hero is-fullheight">
+		<div class="hero-head">
+			<nav class="navbar is-light">
+				<div class="navbar-menu">
+					<div class="navbar-start">
+						<div class="navbar-item has-dropdown is-hoverable">
+							<a class="navbar-link title is-5" style="margin: 0">
+								Resources/ Business
+							</a>
+
+							<div class="navbar-dropdown" id="business-menu">
+								<!-- Items added via the response of the API -->
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="navbar-brand">
+					<a class="navbar-item" href="./index.html">
+						<img src="./assests/images/logo.png">
+					</a>
+				</div>
+
+				<div class="navbar-menu">
+					<div class="navbar-end">
+						<div class="navbar-item has-dropdown is-right is-hoverable">
+							<a class="icon is-medium has-text-black">
+								<i class="fas fa-2x fa-check-square is-black"></i>
+							</a>
+
+							<div class="navbar-dropdown is-boxed" id="task-menu">
+								<!-- Items added via the response of the API -->
+							</div>
+						</div>
+						<div class="navbar-item has-dropdown is-hoverable">
+							<a class="icon is-medium has-text-black">
+								<i class="fas fa-2x fa-map-marker-alt"></i>
+							</a>
+
+							<div class="navbar-dropdown" id="location-menu">
+								<!-- Items added via the response of the API -->
+							</div>
+						</div>
+						<div class="navbar-item has-dropdown is-hoverable">
+							<a class="icon is-medium has-text-black">
+								<i class="fas fa-2x fa-file-invoice-dollar"></i>
+							</a>
+
+							<div class="navbar-dropdown" id="invoice-menu">
+								<!-- Items added via the response of the API -->
+							</div>
+						</div>
+						<div class="navbar-item has-dropdown is-hoverable">
+							<a class="icon is-medium has-text-black">
+								<i class="fas fa-2x fa-bars"></i>
+							</a>
+
+							<div class="navbar-dropdown" id="secondary-menu">
+								<!-- Items added via the response of the API -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</nav>
+		</div>
+		<div class="hero-body has-text-centered">
+			<iframe id="tab" src="./demo.html">Text</iframe>
+		</div>
+		<div class="hero-foot">
+			<footer class="footer">
+				<div class="content has-text-centered">
+					<img src="./assests/images/logo.png" width="150">
+				</div>
+			</footer>
+		</div>
+	</section>
+
+	<script>
+		const jQuery = require('jquery')
+		const $ = jQuery
+	</script>
+	<script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+	<script>
+		// You can also require other files to run in this process
+		require('./renderer.js')
+	</script>
+</body>
+
+</html>
