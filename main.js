@@ -1,10 +1,14 @@
 // Modules to control application life and create native browser window
 const {app, BrowserWindow, ipcMain, Menu, MenuItem} = require('electron')
+let fs = require("fs");
 // const ipc = require('ipc')
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow
-let secondaryWindows = []
+
+const path = require('path')
+
+path.resolve(__dirname, 'preload-script.js')
 
 function createWindow () {
   // Create the browser window.
@@ -12,7 +16,8 @@ function createWindow () {
     width: 1200,
     height: 900,
     webPreferences: {
-      nodeIntegration: true
+      nodeIntegration: true,
+      preload: path.join(__dirname, 'preload-script.js')
     }
   })
 
@@ -67,6 +72,14 @@ ipcMain.on('open-new-window', (event, data) => {
     // secondaryWindow.on('closed', () => {
     //   secondaryWindow = null
     // })
-    mainWindow.loadURL(data.url)
+    mainWindow.loadURL(data+"/login/index")
+})
 
+ipcMain.on('write-data', (event, data) => {
+  fs.writeFile("./data.json", data, "utf-8", (error, res) => {
+      if (error){
+          console.error("error: " + error);
+      }
+      console.log(res)
+  });
 })
